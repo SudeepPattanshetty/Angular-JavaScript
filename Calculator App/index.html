@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <form>
+        <fieldset>
+            <legend>Calculator</legend>
+            <h1>Simple Calculator</h1>
+            <div ng-controller="calc">
+                <span>
+                    Enter the first number:
+                    <input type="number" name="firstnum" id="firstnum" ng-model="firstnum"
+                        placeholder="enter the number 1">
+                </span><br><br>
+                <span>
+                    Enter the second number:
+                    <input type="number" name="secondnum" id="secondnum" ng-model="secondnum"
+                        placeholder="enter the number 2">
+                </span><br>
+
+                <div>
+                    <p>
+                        <button ng-click="add()">Addition</button>
+                        <button ng-click="sub()">Subtract</button>
+                        <button ng-click="mul()">Multiply</button>
+                        <button ng-click="div()">division</button>
+                    </p>
+                </div>
+                <div>
+                    <p>Result:{{result}}</p>
+                </div>
+            </div>
+            <script>
+                var calci = angular.module('myApp', []);
+                calci.controller('calc', function ($scope) {
+                    $scope.result = 0;
+                    $scope.firstnum = 0;
+                    $scope.secondnum = 0;
+
+                    $scope.add = function () {
+                        $scope.result = $scope.firstnum + $scope.secondnum;
+                    }
+                    $scope.sub = function () {
+                        $scope.result = $scope.firstnum - $scope.secondnum;
+                    }
+                    $scope.mul = function () {
+                        $scope.result = $scope.firstnum * $scope.secondnum;
+                    }
+                    $scope.div = function () {
+                        if ($scpoe.secondnum != 0) {
+                            $scope.result = $scope.firstnum / $scope.secondnum;
+                        }
+                        else {
+                            alert('cannot divide by zero')
+                        }
+                    };
+
+                }
+                );
+            </script>
+            
+        </fieldset>
+    </form>
+</body>
+
+</html>
