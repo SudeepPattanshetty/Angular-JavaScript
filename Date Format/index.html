@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Document</title>
+</head> 
+<body ng-app="myApp" ng-controller="myCntrl"> 
+    <h1>Date Display by using Filter Parameters</h1>
+    <p>Date (Default Formate) : {{today|date}}</p>
+    <p>Date (Custom Formate) : {{today|date: date: "dd.MM.y" }}</p>
+    <p>Date (Full Date Formate) : {{today|date: "fullDate"}}</p>
+    <p>Date (Custom Formate) : {{today|date : 'MM/dd/yyyy'}}</p>
+    <p>Date (Short Date Formate) : {{today|date : "shortDate"}}</p>
+    <p>Date (Short time Formate) : {{today|date: "shortTime"}}</p>
+    <p>Date (Medium Date Formate) : {{today|date: "mediumDate"}}</p>
+    <p>Date (Medium Time Formate) : {{today|date: "mediumTime"}}</p>
+    <p>Date (Long Date Formate) : {{today|date : "longDate"}}</p>
+    <script>
+        var app = angular.module('myApp', [])
+        app.controller('myCntrl', function($scope){
+            $scope.today = new Date();
+        });
+    </script>
+</body>
+</html>
